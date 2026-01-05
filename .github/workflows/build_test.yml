@@ -42,7 +42,9 @@ jobs:
         run: npm install
            
       - name: Run tests
+        # Download test files required for this project
         run: |
-            npm run pretest-only
+            curl -LO https://test-files.sheetjs.com/test_files.zip
+            unzip -q test_files.zip
             npm run tests-only
 
